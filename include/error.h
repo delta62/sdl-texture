@@ -1,6 +1,8 @@
-#ifndef _ERROR_H_
-#define _ERROR_H
+#ifndef SN_ERROR_H
+#define SN_ERROR_H
 
-typedef enum { SN_STATUS_OK, SN_STATUS_ERROR } SN_Status;
+void sn_abort(const char *reason);
+
+void sn_sdl_error();
 
 #endif

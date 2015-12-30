@@ -9,8 +9,9 @@ typedef enum {
 } sn_status;
 
 typedef struct {
-    SDL_Window *window;
-    sn_status status;
+    SDL_Window   *window;
+    SDL_Renderer *renderer;
+    sn_status    status;
 } sn_app;
 
 void sn_app_init(sn_app *app);

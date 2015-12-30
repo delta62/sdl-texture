@@ -1,13 +1,14 @@
 #include <stdlib.h>
 #include "app.h"
 #include "event.h"
+#include "error.h"
 
 void sn_app_init(sn_app *app)
 {
     int flags = SDL_INIT_VIDEO;
     if (SDL_Init(flags) != 0)
     {
-        fprintf(stderr, "Unable to init SDL: %s\n", SDL_GetError());
+        sn_sdl_error();
     }
 
     SDL_Window *window = SDL_CreateWindow(
@@ -21,11 +22,18 @@ void sn_app_init(sn_app *app)
 
     if (window == NULL)
     {
-        fprintf(stderr, "Unable to create a window: %s\n", SDL_GetError());
+        sn_sdl_error();
     }
 
-    app->window = window;
-    app->status = SN_RUNNING;
+    SDL_Renderer *renderer = SDL_CreateRenderer(window, -1, 0);
+    if (renderer == NULL)
+    {
+        sn_sdl_error();
+    }
+
+    app->window   = window;
+    app->renderer = renderer;
+    app->status   = SN_RUNNING;
 }
 
 sn_status sn_app_status(sn_app *app)
