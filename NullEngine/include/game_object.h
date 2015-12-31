@@ -9,7 +9,7 @@ typedef struct {
     SDL_Surface *surface;
 } sn_gameobject;
 
-sn_gameobject *sn_gameobject_init();
+sn_gameobject *sn_gameobject_create();
 
 void sn_gameobject_destroy(sn_gameobject **object);
 

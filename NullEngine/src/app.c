@@ -17,7 +17,7 @@ void sn_app_init(sn_app *app)
         SDL_WINDOWPOS_CENTERED,
         640,
         480,
-        SDL_WINDOW_OPENGL
+        SDL_WINDOW_RESIZABLE
     );
 
     if (window == NULL)
@@ -48,6 +48,7 @@ void sn_app_tick(sn_app *app)
 
 int sn_app_exit(sn_app *app)
 {
+    SDL_DestroyRenderer(app->renderer);
     SDL_DestroyWindow(app->window);
     SDL_Quit();
     return 0;

@@ -4,8 +4,6 @@
 
 void sn_process_events()
 {
-    printf("Processing events\n");
-
     SDL_Event event;
 
     while (SDL_PollEvent(&event))

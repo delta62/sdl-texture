@@ -6,8 +6,8 @@ sn_gameobject *sn_gameobject_create()
 {
     sn_gameobject *obj = sn_alloc(sizeof(sn_gameobject));
 
-    obj->x =       0;
-    obj->y =       0;
+    obj->x       = 0;
+    obj->y       = 0;
     obj->surface = NULL;
 
     return obj;
